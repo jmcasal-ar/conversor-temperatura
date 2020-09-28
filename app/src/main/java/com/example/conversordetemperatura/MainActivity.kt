@@ -1,6 +1,7 @@
 package com.example.conversordetemperatura
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,8 +11,6 @@ import android.widget.*
 import androidx.appcompat.widget.Toolbar
 
 const val CELSIUS = 273.15
-
-
 const val SHARED_PREF_PESOS = "KELVIN"
 const val VALOR = "VALOR"
 
@@ -22,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var rbFarenheit: RadioButton
     private lateinit var rbCelsius: RadioButton
     private lateinit var btnConvertir: Button
-    private lateinit var txtResultado: TextView
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         rbFarenheit = findViewById(R.id.rbFarenheit)
         rbCelsius = findViewById(R.id.rbCelsius)
         btnConvertir = findViewById(R.id.btnConvertir)
-        txtResultado = findViewById(R.id.txtResultado)
+
 
         sharedPreferences = getSharedPreferences(SHARED_PREF_PESOS, Context.MODE_PRIVATE)
         val ultimoValor = sharedPreferences.getInt(VALOR, 0)
@@ -63,11 +61,22 @@ class MainActivity : AppCompatActivity() {
                 R.id.rbCelsius -> convertirACelsius(etKelvin.text.toString().toDouble())
                 else -> convertirACelsius(etKelvin.text.toString().toDouble())
             }
-            txtResultado.text = resultado.toString()
+            lanzarResultadoActivity(resultado)
+
         } else {
             MostrarMensaje("Completar todos los campos")
         }
     }
+
+    private fun lanzarResultadoActivity(resultado: Double) {
+        //Ir hacia otra activity
+        val intent = Intent(this, ResultadoActivity::class.java)
+        //metodo para enviar parametros
+        intent.putExtra("RESULTADO", resultado)
+        //Metodo para comenzar la Activity
+        startActivity(intent)
+    }
+
     private fun obtenerRadioButtonSeleccionado(): Int {
         return  rgTemperatura.checkedRadioButtonId
     }
