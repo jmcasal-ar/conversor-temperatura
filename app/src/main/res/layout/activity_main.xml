@@ -14,8 +14,47 @@
         android:layout_height="wrap_content" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Ingresar temperatura en Kelvin" />
+
+    <EditText
+        android:id="@+id/etKelvin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="numberDecimal" />
+
+    <RadioGroup
+        android:id="@+id/rgTemperatura"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/rbFarenheit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convertir a Farenheit" />
+
+        <RadioButton
+            android:id="@+id/rbCelsius"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Convertir a Celsius" />
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnConvertir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Convertir Temperatura" />
+
+    <TextView
+        android:id="@+id/txtResultado"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0" />
 
 </LinearLayout>
