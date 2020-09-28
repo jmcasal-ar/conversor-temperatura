@@ -17,19 +17,22 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:text="Ingresar temperatura en Kelvin" />
 
     <EditText
         android:id="@+id/etKelvin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="4dp"
         android:ems="10"
         android:inputType="numberDecimal" />
 
     <RadioGroup
         android:id="@+id/rgTemperatura"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp">
 
         <RadioButton
             android:id="@+id/rbFarenheit"
@@ -47,8 +50,12 @@
 
     <Button
         android:id="@+id/btnConvertir"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="16dp"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:padding="16dp"
         android:text="Convertir Temperatura" />
 
 </LinearLayout>
