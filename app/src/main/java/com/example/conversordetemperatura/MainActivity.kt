@@ -104,6 +104,11 @@ private fun setupToolbar() {
         return super.onOptionsItemSelected(item)
     }
 
+    //Con esto modificamos el botón de ir atrás en la aplicación, para que no haga nada
+    override fun onBackPressed() {
+        super.onBackPressed()
+    }
+
     private fun MostrarMensaje(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
     }
